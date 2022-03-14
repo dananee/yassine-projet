@@ -56,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
         await g_ads.init();
         await g_ads.loadAds();
         setState(() {
-          Get.offAll(Home());
+          Get.offAll(() => Home());
         });
       } else {
         await Future.delayed(const Duration(seconds: 2), () {
