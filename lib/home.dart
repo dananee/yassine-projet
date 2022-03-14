@@ -1,41 +1,15 @@
-import 'package:admob_flutter/admob_flutter.dart';
+import 'package:admosttest/ads/src/widgets/custom_banner.dart';
+import 'package:admosttest/const.dart';
 import 'package:admosttest/data.dart';
 import 'package:flutter/material.dart';
-
-import 'constente.dart';
+import 'package:get/get.dart';
 import 'dattailes.dart';
+ 
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
-
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  GlobalKey<ScaffoldState> key = GlobalKey();
-
-  @override
-  void initState() {
-    Constente.banner = AdmobBanner(
-      adSize: AdmobBannerSize.BANNER,
-      adUnitId: Constente.bannerhomepage(),
-    );
-    super.initState();
-    _controller = AnimationController(vsync: this);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
-  }
-
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: key,
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
@@ -61,20 +35,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     ),
                     trailing: const Icon(Icons.arrow_forward_ios_rounded),
                     onTap: () {
-                      Navigator.push(context, PageRouteBuilder<Offset>(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) {
-                        const begin = Offset(0.0, 1.0);
-                        const end = Offset.zero;
-                        final tween = Tween(begin: begin, end: end);
-                        final offsetAnimation = animation.drive(tween);
-                        return SlideTransition(
-                            position: offsetAnimation,
-                            child: Dettailes(
-                              decs: item.dec,
-                              title: item.title,
-                            ));
-                      }));
+                      g_ads.interInstance.showInterstitialAd();
+                      Get.to(Dettailes(),
+                          arguments: {
+                            "title": item.title,
+                            "desc": item.dec,
+                          },
+                          transition: Transition.rightToLeftWithFade);
                     },
                   ),
                   const Divider()
@@ -84,7 +51,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           }),
       bottomNavigationBar: SizedBox(
         height: 70,
-        child: Constente.banner,
+        child: CustomBanner(key: UniqueKey(), ads: g_ads.bannerInstance),
       ),
     );
   }

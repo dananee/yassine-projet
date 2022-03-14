@@ -81,4 +81,30 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+     
+
+    // Add AdMob and Ad Manager Network
+    implementation 'com.google.android.gms:play-services-ads:20.4.0'
+    // implementation 'com.ironsource.adapters:admobadapter:4.3.23'
+
+    // Add Facebook Network
+    // implementation 'com.ironsource.adapters:facebookadapter:4.3.33'
+    implementation 'androidx.annotation:annotation:1.0.0'
+    implementation 'com.facebook.android:audience-network-sdk:6.8.0'
+
+    // google play services needed by ironsource
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.android.gms:play-services-appset:16.0.0'
+    implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
+    implementation 'com.google.android.gms:play-services-basement:17.1.1'
+
+    // admob mediation -> facebook
+    implementation 'com.google.ads.mediation:facebook:6.8.0.0'
+
+    // aplovine 
+    implementation 'com.applovin:applovin-sdk:+'
+    implementation 'com.applovin.mediation:facebook-adapter:+'
+    implementation 'com.android.support:recyclerview-v7:28.+'
+    implementation 'com.android.support:appcompat-v7:28.+'
 }
