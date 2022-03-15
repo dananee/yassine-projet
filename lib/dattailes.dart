@@ -26,10 +26,7 @@ class Dettailes extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
-            const SizedBox(
-              child: Center(child: Text("ADS")),
-              height: 180,
-            ),
+            g_ads.nativeInstance.getNativeAdWidget(),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Html(data: Get.arguments['desc']),
