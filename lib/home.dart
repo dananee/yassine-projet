@@ -4,7 +4,6 @@ import 'package:admosttest/data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dattailes.dart';
- 
 
 class Home extends StatelessWidget {
   @override
@@ -36,7 +35,7 @@ class Home extends StatelessWidget {
                     trailing: const Icon(Icons.arrow_forward_ios_rounded),
                     onTap: () {
                       g_ads.interInstance.showInterstitialAd();
-                      Get.to(Dettailes(),
+                      Get.to(() => Dettailes(),
                           arguments: {
                             "title": item.title,
                             "desc": item.dec,

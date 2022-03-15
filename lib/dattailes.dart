@@ -1,6 +1,4 @@
-import 'package:admosttest/ads/src/widgets/custom_banner.dart';
 import 'package:admosttest/const.dart';
-import 'package:admosttest/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:get/get.dart';
@@ -24,12 +22,21 @@ class Dettailes extends StatelessWidget {
         title: Text(Get.arguments['title']),
         centerTitle: true,
       ),
-      body: ListView(physics: const BouncingScrollPhysics(), children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Html(data: Get.arguments['desc']),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            const SizedBox(
+              child: Center(child: Text("ADS")),
+              height: 180,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Html(data: Get.arguments['desc']),
+            ),
+          ],
         ),
-      ]),
+      ),
     );
   }
 }
