@@ -32,7 +32,8 @@ class Home extends StatelessWidget {
                       item.title,
                       style: const TextStyle(color: Colors.blue),
                     ),
-                    trailing: const Icon(Icons.arrow_forward_ios_rounded),
+                    trailing:
+                        const Icon(Icons.arrow_forward_ios_rounded, size: 16.0),
                     onTap: () {
                       g_ads.interInstance.showInterstitialAd();
                       Get.to(() => Dettailes(),
