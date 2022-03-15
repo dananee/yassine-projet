@@ -54,7 +54,7 @@ class Home extends StatelessWidget {
           }),
       bottomNavigationBar: SizedBox(
         height: 70,
-        // child: CustomBanner(key: UniqueKey(), ads: g_ads.bannerInstance),
+        child: CustomBanner(key: UniqueKey(), ads: g_ads.bannerInstance),
       ),
     );
   }
