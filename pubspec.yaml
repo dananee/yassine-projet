@@ -50,7 +50,6 @@ dependencies:
       ref: bfe81a5
   unity_ads_plugin: ^0.2.4
   http: ^0.13.4
-  dio: ^4.0.4
   get: ^4.6.1
   
 dev_dependencies:
